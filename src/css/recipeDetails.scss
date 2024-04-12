@@ -1,0 +1,22 @@
+.recipeName {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-weight: 200 !important;
+  line-height: 1.1 !important;
+}
+.Image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.listFormat {
+  white-space: pre-line;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI (Custom)', Roboto,
+    'Helvetica Neue', 'Open Sans (Custom)', system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji';
+
+  font-size: 16px;
+}
+.separator {
+  height: 3px !important;
+  background-color: var(--accent-10) !important;
+}

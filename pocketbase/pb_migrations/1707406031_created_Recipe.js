@@ -1,0 +1,132 @@
+/// <reference path="../pb_data/types.d.ts" />
+migrate((db) => {
+  const collection = new Collection({
+    "id": "ao04hf5ukwu09yq",
+    "created": "2024-02-08 15:27:11.554Z",
+    "updated": "2024-02-08 15:27:11.554Z",
+    "name": "Recipe",
+    "type": "base",
+    "system": false,
+    "schema": [
+      {
+        "system": false,
+        "id": "rxbg0use",
+        "name": "RecipeName",
+        "type": "text",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "yoagrkra",
+        "name": "Equipment",
+        "type": "text",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "zyainyjn",
+        "name": "Ingredients",
+        "type": "text",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "j0co5ylp",
+        "name": "Notes",
+        "type": "text",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "gogs5cjj",
+        "name": "Image",
+        "type": "file",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "mimeTypes": [],
+          "thumbs": [],
+          "maxSelect": 1,
+          "maxSize": 5242880,
+          "protected": false
+        }
+      },
+      {
+        "system": false,
+        "id": "zislfzc1",
+        "name": "WantToTry",
+        "type": "bool",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {}
+      },
+      {
+        "system": false,
+        "id": "f57mofj4",
+        "name": "Favorite",
+        "type": "bool",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {}
+      },
+      {
+        "system": false,
+        "id": "vvpzc7ph",
+        "name": "Source",
+        "type": "url",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "exceptDomains": null,
+          "onlyDomains": null
+        }
+      }
+    ],
+    "indexes": [],
+    "listRule": null,
+    "viewRule": null,
+    "createRule": null,
+    "updateRule": null,
+    "deleteRule": null,
+    "options": {}
+  });
+
+  return Dao(db).saveCollection(collection);
+}, (db) => {
+  const dao = new Dao(db);
+  const collection = dao.findCollectionByNameOrId("ao04hf5ukwu09yq");
+
+  return dao.deleteCollection(collection);
+})

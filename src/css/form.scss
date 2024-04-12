@@ -1,0 +1,107 @@
+/*
+Roughly follows the color scale guide for provided by Radix docs:
+https://www.radix-ui.com/colors/docs/palette-composition/understanding-the-scale
+Form CSS taken from (has been adjusted here):
+https://www.radix-ui.com/primitives/docs/components/form
+*/
+//===== MOBILE =====
+@media screen and (max-width: 700px) {
+  .flexContainer {
+    flex-direction: column;
+  }
+}
+
+//===== FORM STYLING START =====
+input,
+textarea,
+button {
+  all: unset;
+  box-sizing: border-box;
+}
+
+.FormRoot {
+  width: 300px;
+  padding: 1rem;
+}
+
+.FormField {
+  display: grid;
+  margin-bottom: 10px;
+}
+
+.FormLabel {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 35px;
+}
+
+.FormMessage {
+  font-size: 13px;
+  color: black;
+  opacity: 0.8;
+}
+
+.formInput,
+.Textarea {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+
+  font-size: 15px;
+  color: black;
+  background-color: var(--accent-3);
+  box-shadow: 0 0 0 1px var(--accent-8);
+}
+.formInput:hover .Textarea:hover {
+  box-shadow: 0 0 0 2px var(--accent-7);
+}
+.formInput:focus,
+.Textarea:focus {
+  background-color: var(--accent-4);
+  box-shadow: 0 0 0 2px var(--accent-7);
+}
+.formInput::selection,
+.Textarea::selection {
+  background-color: var(--accent-12);
+  color: white;
+}
+
+.formInput {
+  padding: 0 10px;
+  height: 35px;
+  line-height: 1;
+}
+
+.Textarea {
+  resize: vertical;
+  padding: 10px 10px 10px 10px;
+  height: 150px;
+}
+
+.Button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 0 15px;
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 500;
+  height: 35px;
+  width: 100%;
+
+  background-color: var(--gray-3);
+  box-shadow: 0 0 0 1px var(--gray-6);
+  color: var(--accent-11);
+}
+.Button:hover {
+  background-color: var(--gray-4);
+}
+.Button:focus {
+  background-color: var(--gray-5);
+  box-shadow: 0 0 0 2px (--gray-7);
+}
+
+//===== FORM STYLING END =====

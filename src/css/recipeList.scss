@@ -1,0 +1,43 @@
+@import '@radix-ui/colors/green.css';
+.flags {
+  color: var(--accent-12);
+}
+.recipeCardLink {
+  text-decoration: none;
+  color: black;
+}
+.recipeCard:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 10px;
+  transition: 0.3s;
+  transform: translate3d(0px, -0.5px, 0px);
+}
+.recipeCard {
+  width: 250px !important;
+  height: 300px !important;
+}
+.recipeContainer {
+  background-color: var(--accent-2);
+  padding: 1rem 1rem 1rem 3rem;
+  flex-shrink: 1 !important;
+}
+.statusBadge {
+  z-index: 10;
+  position: absolute;
+  padding: 0 10px;
+  right: 7px;
+  top: 5px;
+}
+
+@media (max-width: 768px) {
+  .recipeContainer {
+    padding: 15px;
+  }
+  .recipeCard {
+    max-width: 200px;
+  }
+}
+@media (max-width: 426px) {
+  .recipeListFlex {
+    justify-content: center !important;
+  }
+}
