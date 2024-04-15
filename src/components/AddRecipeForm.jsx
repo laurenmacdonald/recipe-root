@@ -5,8 +5,10 @@ import pb from '../util/pocketbase';
 import '../css/recipeform.scss';
 import { useRecipeContext } from '../contexts/RecipeContext';
 import { useSuggestionContext } from '../contexts/SuggestionContext';
+import { useNavigate } from 'react-router-dom';
 
-export default function AddRecipeForm() {
+export default function AddRecipeForm(formLocation) {
+  const navigate = useNavigate();
   const { loadCategories, loadTags, tagList, categoryList } =
     useRecipeContext();
   const {
@@ -34,14 +36,15 @@ export default function AddRecipeForm() {
       Image: fileInputRef.current.files[0],
     };
 
-    console.log(response);
-
     await pb.collection('Recipe').create(response);
 
     reset();
     setSuggestionRecipeName('');
     setSuggestionIngredients('');
     setSuggestionInstructions('');
+    if (formLocation === 'recipeGenerator') {
+      navigate('/recipe-book');
+    }
   };
 
   useEffect(() => {
@@ -52,7 +55,6 @@ export default function AddRecipeForm() {
   return (
     <>
       <Grid className="flexContainer" justify="center" direction="row">
-        {/* <Card m="6" p="6"> */}
         <form className="newRecipeForm" onSubmit={handleSubmit(onSubmit)}>
           <div className="checkbox-group">
             <p className="entryLabel">What's the status</p>
@@ -100,7 +102,10 @@ export default function AddRecipeForm() {
           </label>
           {/* TAGS */}
           <p className="entryLabel">Tag</p>
-          <Grid columns="3" className="checkbox-group">
+          <Grid
+            columns={{ xs: '1', sm: '2', md: '3' }}
+            className="checkbox-group"
+          >
             {tagList.map((tag) => (
               <label key={tag.id} className="checkbox-label">
                 <input
@@ -138,7 +143,6 @@ export default function AddRecipeForm() {
             Submit
           </button>
         </form>
-        {/* </Card> */}
       </Grid>
     </>
   );

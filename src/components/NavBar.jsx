@@ -13,6 +13,7 @@ import {
   BookmarkFilledIcon,
   MagnifyingGlassIcon,
   MagicWandIcon,
+  DrawingPinFilledIcon,
 } from '@radix-ui/react-icons';
 import SearchBar from './SearchBar';
 
@@ -62,6 +63,23 @@ const NavBar = () => {
                     <BookmarkFilledIcon />
                   </AccessibleIcon.Root>
                   {'   '}Recipe Book
+                </NavLink>
+              </li>
+              <li className="favorites">
+                <NavLink to="/favorites" end>
+                  <AccessibleIcon.Root>
+                    <HeartFilledIcon />
+                  </AccessibleIcon.Root>
+                  {'   '}Favorite Recipes
+                </NavLink>
+              </li>
+              <li className="wantToTry">
+                <NavLink to="/recipe-book/want" end>
+                  {'   '}
+                  <AccessibleIcon.Root>
+                    <DrawingPinFilledIcon />
+                  </AccessibleIcon.Root>
+                  {'     '}Want to Try
                 </NavLink>
               </li>
 

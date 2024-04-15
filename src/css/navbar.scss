@@ -62,10 +62,14 @@ body {
   color: white !important;
   padding: 0.5rem;
 }
+.favorites,
+.wantToTry {
+  display: none !important;
+}
 
 @media (max-width: 768px) {
   .container {
-    justify-content: start;
+    justify-content: space-around;
   }
   .nav-elements ul li:not(:last-child) {
     margin-right: 30px;
@@ -107,5 +111,12 @@ body {
     margin-right: unset;
     margin-top: 22px;
     text-decoration: none;
+  }
+}
+
+@media (max-width: 556px) {
+  .favorites,
+  .wantToTry {
+    display: block !important;
   }
 }

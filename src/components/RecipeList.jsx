@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   Container,
   Heading,
@@ -14,10 +14,12 @@ import FilterContent from './FilterContent.jsx';
 import RecipeCard from './RecipeCard.jsx';
 import { useRecipeContext } from '../contexts/RecipeContext.jsx';
 import { useParams } from 'react-router-dom';
+import NoRecipesDisplay from './NoRecipesDisplay.jsx';
 
 export default function RecipeList() {
   const { recipeData, loading, loadRecipeItems, filterTags, filterCategory } =
     useRecipeContext();
+  const [filteringApplied, setFilteringApplied] = useState(false);
 
   useEffect(() => {
     loadRecipeItems();
@@ -43,6 +45,7 @@ export default function RecipeList() {
         favoriteParams === 'favorite' ? recipe.Favorite === true : true;
       const wantToTryRecipes =
         wantToTryParams === 'want' ? recipe.WantToTry === true : true;
+      setFilteringApplied(true);
       return matchesTags && matchesCategory && favorites && wantToTryRecipes;
     });
   }
@@ -63,10 +66,14 @@ export default function RecipeList() {
 
   const listRecipeItems = (
     <Flex className="recipeListFlex" gap="5" wrap="wrap">
-      {filteredData && filteredData.length ? (
+      {filteringApplied && filteredData && filteredData.length ? (
         <RecipeCard data={filteredData} imgURLS={imgURLS} />
-      ) : (
+      ) : filteringApplied && filteredData && !filteredData.length ? (
         <Text>There are no recipes that match the filters you provided!</Text>
+      ) : (
+        <Text>
+          <NoRecipesDisplay />
+        </Text>
       )}
     </Flex>
   );

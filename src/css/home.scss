@@ -1,7 +1,19 @@
-.homeGrid {
-  background-color: var(--accent-3);
-}
+@import '@radix-ui/colors/orange.css';
 .radishLogo {
-  max-width: 100%;
+  max-width: 60%;
   height: auto;
+}
+
+.imageContainer .homeImage {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 25px !important;
+  border: solid 1px;
+}
+.simpleOverlay {
+  background-color: var(--accent-5);
+}
+.signUpLink {
+  text-decoration: none;
 }

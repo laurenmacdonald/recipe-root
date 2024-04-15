@@ -1,3 +1,10 @@
+@media screen and (max-width: 425px) {
+  .newRecipeForm {
+    max-width: 200px !important;
+    margin: 0 auto;
+    padding: 10px !important;
+  }
+}
 .newRecipeForm {
   max-width: 600px;
   margin: 0 auto;

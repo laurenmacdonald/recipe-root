@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import RecipeBook from './pages/RecipeBook';
 import RecipeDetailPage from './components/RecipeDetails';
 import SuggestedRecipe from './pages/SuggestedRecipe';
+import Favorites from './pages/Favorites';
 
 function App() {
   return (
@@ -18,11 +19,7 @@ function App() {
           <Route element={<PrivateRoutes />}>
             <Route element={<RecipeBook />} path="/recipe-book" />
             <Route element={<RecipeDetailPage />} path="/recipe/:id" />
-            <Route
-              element={<RecipeBook />}
-              exact
-              path="/recipe-book/:favorite/:want"
-            />
+            <Route element={<Favorites />} exact path="/favorites" />
             <Route element={<RecipeBook />} exact path="/recipe-book/:want" />
             <Route
               element={<SuggestedRecipe />}

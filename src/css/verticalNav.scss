@@ -41,7 +41,7 @@
   padding-bottom: 30px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1075px) {
   .verticalNavBuffer {
     display: none;
   }
@@ -52,6 +52,6 @@
 
 @media (max-width: 556px) {
   .verticalNavBox {
-    display: none;
+    display: none !important;
   }
 }

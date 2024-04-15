@@ -27,7 +27,7 @@ const VerticalNav = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/recipe-book/favorite" end>
+                <NavLink to="/favorites" end>
                   <AccessibleIcon.Root>
                     <HeartFilledIcon />
                   </AccessibleIcon.Root>

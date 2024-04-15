@@ -27,6 +27,13 @@
   right: 7px;
   top: 5px;
 }
+.secondStatusBadge {
+  z-index: 10;
+  position: absolute;
+  padding: 0 10px;
+  right: 7px;
+  top: 30px;
+}
 
 @media (max-width: 768px) {
   .recipeContainer {
@@ -36,7 +43,7 @@
     max-width: 200px;
   }
 }
-@media (max-width: 426px) {
+@media (max-width: 588px) {
   .recipeListFlex {
     justify-content: center !important;
   }

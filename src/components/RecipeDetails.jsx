@@ -11,10 +11,13 @@ import {
   Flex,
   Text,
   Separator,
+  Section,
+  Button,
 } from '@radix-ui/themes';
 import '../css/recipeDetails.scss';
 import FavoriteSwitch from './FavoriteSwitch.jsx';
 import WantToTrySwitch from './WantToTrySwitch.jsx';
+import ListCheck from './InstructionsCheck.jsx';
 
 const RecipeDetailPage = () => {
   const { id } = useParams(); // Get the ID from the URL params
@@ -24,7 +27,7 @@ const RecipeDetailPage = () => {
     // Load the selected recipe when the component mounts
     selectRecipeById(id);
   }, [id]);
-  console.log(selectedRecipe);
+  console.log('useeffect', selectedRecipe);
 
   const imgURL = () => {
     if (!selectedRecipe) {
@@ -38,60 +41,59 @@ const RecipeDetailPage = () => {
   }
   return (
     <>
-      <Grid px="9" columns={{ initial: '1', md: '2' }} gap="2">
-        <Flex
-          className="recipeNameContainer"
-          px="8"
-          pt={{ initial: '5', sm: '9' }}
-          justify="center"
-          direction="column"
-        >
-          <Heading as="h1" size="9" className="recipeName">
-            {selectedRecipe.RecipeName}
-          </Heading>
-          <Flex gap="2" pt={{ initial: '8', sm: '5' }}>
-            <CategoryBadge recipe={selectedRecipe} size="3" radius="large" />
-            <TagBadge recipe={selectedRecipe} size="3" radius="large" />
-          </Flex>
-          <Flex direction="row" gap="5" mt="5">
-            <Text as="label" size="2">
-              <FavoriteSwitch id={selectedRecipe.id} />
-            </Text>
+      <Section>
+        <Container px={{ xs: '3', md: '5', lg: '9' }}>
+          <Grid columns={{ initial: '1', md: '2' }} gap="2">
+            <Container align="start" p="8">
+              <div></div>
+              <Heading as="h1" size="9" className="recipeName">
+                {selectedRecipe.RecipeName}
+              </Heading>
+              <Flex gap="2" pt={{ initial: '8', sm: '5' }} wrap="wrap">
+                <CategoryBadge
+                  recipe={selectedRecipe}
+                  size="3"
+                  radius="large"
+                />
+                <TagBadge recipe={selectedRecipe} size="3" radius="large" />
+              </Flex>
+              <Flex direction="row" gap="5" mt="5">
+                <Text as="label" size="2">
+                  <FavoriteSwitch id={selectedRecipe.id} />
+                </Text>
 
-            <Text as="label" size="2">
-              <WantToTrySwitch id={selectedRecipe.id} />
-            </Text>
-          </Flex>
-        </Flex>
-        <Container className="Container" align="center" p="8">
-          <AspectRatio ratio={3 / 2}>
-            <img
-              className="Image"
-              src={imgURL()}
-              alt={selectedRecipe.RecipeName}
-            />
-          </AspectRatio>
+                <Text as="label" size="2">
+                  <WantToTrySwitch id={selectedRecipe.id} />
+                </Text>
+              </Flex>
+            </Container>
+            <Container className="Container" align="start" p="8">
+              <AspectRatio ratio={3 / 2}>
+                <img
+                  className="Image"
+                  src={imgURL()}
+                  alt={selectedRecipe.RecipeName}
+                />
+              </AspectRatio>
+            </Container>
+            <Container align="start" p="8">
+              <div></div>
+              <Heading as="h2" size="4">
+                Ingredients
+              </Heading>
+              <Separator my="3" size="4" className="separator" />
+              <ListCheck listString={selectedRecipe.Ingredients} />
+            </Container>
+            <Container className="Container" align="start" p="8">
+              <Heading as="h2" size="4">
+                Instructions
+              </Heading>
+              <Separator my="3" size="4" className="separator" />
+              <ListCheck listString={selectedRecipe.Instructions} />
+            </Container>
+          </Grid>
         </Container>
-        <Container align="start" p="8">
-          <div></div>
-          <Heading as="h2" size="4">
-            Ingredients
-          </Heading>
-          <Separator my="3" size="4" className="separator" />
-          <div>
-            <pre className="listFormat">{selectedRecipe.Ingredients}</pre>
-          </div>
-        </Container>
-        <Container className="Container" align="start" p="8">
-          <Heading as="h2" size="4">
-            Instructions
-          </Heading>
-          <Separator my="3" size="4" className="separator" />
-          <div>
-            <pre className="listFormat">{selectedRecipe.Instructions}</pre>
-          </div>
-        </Container>
-      </Grid>
+      </Section>
     </>
   );
 };

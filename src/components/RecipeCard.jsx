@@ -45,7 +45,11 @@ export default function RecipeCard({ data, imgURLS }) {
                       radius="full"
                       variant="solid"
                       color="crimson"
-                      className="statusBadge"
+                      className={
+                        recipe.Favorite === true && recipe.WantToTry === true
+                          ? 'secondStatusBadge'
+                          : 'statusBadge'
+                      }
                     >
                       Favorite
                     </Badge>
